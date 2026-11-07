@@ -1,0 +1,540 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fff0f5, #fce4ec, #ffe4e1);
+    color: #704052;
+    overflow-x: hidden;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.welcome,
+.letter-section,
+.message-section,
+.question-section {
+    width: 100%;
+    max-width: 650px;
+    text-align: center;
+    animation: appear 1s ease;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.small-heart {
+    font-size: 65px;
+    color: #e66b91;
+    animation: heartbeat 1.5s infinite;
+}
+
+.top-text {
+    color: #d47a99;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(65px, 12vw, 100px);
+    color: #c54d78;
+    font-weight: 400;
+    margin: 15px 0;
+}
+
+.subtitle {
+    font-size: 15px;
+    line-height: 2;
+    color: #80566a;
+    margin: 20px 0 35px;
+}
+
+.subtitle span,
+.click-text span {
+    font-size: 13px;
+    color: #a8798c;
+}
+
+.main-btn {
+    background: linear-gradient(135deg, #e982a5, #c94e7b);
+    border: none;
+    padding: 15px 32px;
+    border-radius: 40px;
+    color: white;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 8px 25px #d77b9a55;
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px #d77b9a77;
+}
+
+.bottom-text {
+    margin-top: 50px;
+    font-size: 11px;
+    color: #b58a9a;
+    letter-spacing: 2px;
+}
+
+/* ENVELOPE */
+
+.envelope {
+    width: 260px;
+    height: 180px;
+    position: relative;
+    margin: 30px auto;
+    cursor: pointer;
+    perspective: 800px;
+}
+
+.envelope-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #eaa0b9;
+    border-radius: 8px;
+}
+
+.letter-paper {
+    position: absolute;
+    width: 85%;
+    height: 140px;
+    left: 7.5%;
+    top: 5px;
+    background: #fffaf5;
+    padding: 15px 8px;
+    border-radius: 5px;
+    transition: 0.8s;
+    font-size: 12px;
+}
+
+.letter-paper span {
+    font-family: 'Great Vibes', cursive;
+    font-size: 23px;
+    color: #c54d78;
+}
+
+.letter-heart {
+    display: block;
+    margin-top: 8px;
+}
+
+.envelope.open .letter-paper {
+    transform: translateY(-125px);
+}
+
+.envelope-front {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 130px solid #e78da9;
+    border-right: 130px solid #e78da9;
+    border-top: 90px solid transparent;
+    border-bottom: 90px solid #df789b;
+    border-radius: 0 0 8px 8px;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 130px solid transparent;
+    border-right: 130px solid transparent;
+    border-top: 100px solid #d96f92;
+    transform-origin: top;
+    transition: 0.7s;
+    z-index: 3;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.envelope-seal {
+    position: absolute;
+    top: 72px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #bd426e;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 50%;
+    color: white;
+    z-index: 4;
+}
+
+.click-text {
+    margin: 30px 0;
+    line-height: 2;
+    font-size: 14px;
+}
+
+/* LETTER CONTENT */
+
+.flower {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 55px;
+    font-weight: 400;
+    color: #c54d78;
+    margin-bottom: 20px;
+}
+
+.message-card {
+    background: #ffffffb8;
+    border: 1px solid #f4cbd9;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: left;
+    box-shadow: 0 10px 35px #bd66851c;
+    margin: 20px 0 30px;
+    line-height: 1.9;
+}
+
+.message-card p {
+    margin-bottom: 17px;
+    font-size: 14px;
+}
+
+.line {
+    height: 1px;
+    background: #ecc4d2;
+    margin: 20px 0;
+}
+
+.uzbek {
+    color: #a34f71;
+    font-style: italic;
+}
+
+/* QUESTION */
+
+.big-heart {
+    font-size: 65px;
+    animation: heartbeat 1.3s infinite;
+    margin-bottom: 15px;
+}
+
+.question {
+    font-size: 19px;
+    line-height: 1.9;
+    color: #85455f;
+    margin: 20px 0;
+}
+
+.question-uz {
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 30px;
+}
+
+.answer-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.yes-btn,
+.time-btn {
+    padding: 14px 23px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.yes-btn {
+    background: #d95783;
+    color: white;
+}
+
+.time-btn {
+    background: white;
+    color: #bd5279;
+    border: 1px solid #eab5c9;
+}
+
+.yes-btn:hover,
+.time-btn:hover {
+    transform: translateY(-3px);
+}
+
+.response {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    line-height: 1.8;
+    color: #bd5279;
+    animation: appear 0.5s ease;
+}
+
+.footer {
+    font-size: 11px;
+    line-height: 2;
+    color: #a77a8c;
+    margin-top: 35px;
+}
+
+/* FLOATING PETALS */
+
+.petals {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.petal {
+    position: absolute;
+    top: -30px;
+    color: #e98bab;
+    animation: fall linear infinite;
+    opacity: 0.65;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+    .container {
+        padding: 18px;
+    }
+
+    .message-card {
+        padding: 20px;
+    }
+
+    .message-card p {
+        font-size: 13px;
+    }
+
+    h2 {
+        font-size: 48px;
+    }
+
+    .question {
+        font-size: 16px;
+    }
+
+    .envelope {
+        transform: scale(0.9);
+    }
+}
+
+/* =================================
+   MOBILE RESPONSIVE DESIGN
+================================= */
+
+@media screen and (max-width: 600px) {
+
+    body {
+        min-height: 100dvh;
+        overflow-x: hidden;
+    }
+
+    .container {
+        min-height: 100dvh;
+        padding: 25px 18px;
+        align-items: center;
+    }
+
+    .welcome,
+    .letter-section,
+    .message-section,
+    .question-section {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Welcome */
+
+    .small-heart {
+        font-size: 55px;
+    }
+
+    h1 {
+        font-size: clamp(55px, 15vw, 75px);
+        line-height: 1.2;
+    }
+
+    .top-text {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+        line-height: 1.9;
+    }
+
+    .main-btn {
+        width: 100%;
+        max-width: 290px;
+        min-height: 50px;
+        padding: 13px 18px;
+        font-size: 13px;
+    }
+
+    .bottom-text {
+        margin-top: 35px;
+        font-size: 10px;
+    }
+
+    /* Envelope */
+
+    .envelope {
+        transform: scale(0.85);
+        transform-origin: center;
+        margin: 20px auto;
+    }
+
+    .click-text {
+        font-size: 12px;
+        line-height: 2;
+    }
+
+    /* Letter */
+
+    h2 {
+        font-size: 48px;
+    }
+
+    .message-card {
+        padding: 22px 18px;
+        border-radius: 16px;
+        margin: 15px 0 25px;
+    }
+
+    .message-card p {
+        font-size: 13px;
+        line-height: 1.9;
+    }
+
+    /* Question */
+
+    .big-heart {
+        font-size: 55px;
+    }
+
+    .question {
+        font-size: 16px;
+        line-height: 1.9;
+    }
+
+    .question-uz {
+        font-size: 13px;
+    }
+
+    .answer-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .yes-btn,
+    .time-btn {
+        width: 100%;
+        max-width: 290px;
+        min-height: 48px;
+        font-size: 13px;
+    }
+
+    .footer {
+        font-size: 10px;
+        padding-bottom: 20px;
+    }
+}
+
+/* Kichik telefonlar */
+
+@media screen and (max-width: 360px) {
+
+    .container {
+        padding: 18px 12px;
+    }
+
+    h1 {
+        font-size: 53px;
+    }
+
+    .envelope {
+        transform: scale(0.75);
+        margin: 5px auto;
+    }
+
+    .message-card {
+        padding: 18px 14px;
+    }
+
+    .question {
+        font-size: 14px;
+    }
+}
+
+/* Touch ekranlar */
+
+button,
+.envelope {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+button {
+    cursor: pointer;
+}
