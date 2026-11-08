@@ -14,9 +14,12 @@ const yesBtn = document.getElementById("yesBtn");
 const timeBtn = document.getElementById("timeBtn");
 const response = document.getElementById("response");
 
-// 1. Welcome sahifasidan konvertga o'tish
+// 1. Welcome sahifasidan konvertga o'tish va musiqani boshlash
 
 startBtn.addEventListener("click", () => {
+
+    playMusic(); // MUSIQA BOSHLANADI
+
     welcome.classList.add("hidden");
     letterSection.classList.remove("hidden");
 });
@@ -167,4 +170,14 @@ for (let i = 0; i < 20; i++) {
     petal.style.fontSize = (12 + Math.random() * 15) + "px";
 
     petals.appendChild(petal);
+}
+const music = new Audio("music/romantic.mp3");
+
+music.loop = true;
+music.volume = 0.25;
+
+function playMusic() {
+    music.play().catch(error => {
+        console.log("Musiqani boshlash uchun foydalanuvchi harakati kerak.");
+    });
 }
