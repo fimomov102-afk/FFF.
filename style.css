@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -103,9 +102,8 @@ h1 {
     width: 260px;
     height: 180px;
     position: relative;
-    margin: 30px auto;
+    margin: 150px auto 30px; /* xat tepaga chiqishi uchun joy */
     cursor: pointer;
-    perspective: 800px;
 }
 
 .envelope-back {
@@ -114,6 +112,7 @@ h1 {
     height: 100%;
     background: #eaa0b9;
     border-radius: 8px;
+    z-index: 1;
 }
 
 .letter-paper {
@@ -125,8 +124,10 @@ h1 {
     background: #fffaf5;
     padding: 15px 8px;
     border-radius: 5px;
-    transition: 0.8s;
     font-size: 12px;
+    z-index: 3;
+    box-shadow: 0 2px 10px #bd668533;
+    transition: transform 0.8s ease 0.4s;
 }
 
 .letter-paper span {
@@ -154,6 +155,7 @@ h1 {
     border-top: 90px solid transparent;
     border-bottom: 90px solid #df789b;
     border-radius: 0 0 8px 8px;
+    z-index: 4;
 }
 
 .envelope-flap {
@@ -165,13 +167,13 @@ h1 {
     border-right: 130px solid transparent;
     border-top: 100px solid #d96f92;
     transform-origin: top;
-    transition: 0.7s;
-    z-index: 3;
+    z-index: 5;
+    transition: transform 0.6s ease, z-index 0s linear 0.3s;
 }
 
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
-    z-index: 0;
+    z-index: 2; /* xatdan (3) pastda, orqa qismdan (1) yuqorida */
 }
 
 .envelope-seal {
@@ -183,9 +185,15 @@ h1 {
     width: 35px;
     height: 35px;
     line-height: 35px;
+    text-align: center;
     border-radius: 50%;
     color: white;
-    z-index: 4;
+    z-index: 6;
+    transition: opacity 0.3s;
+}
+
+.envelope.open .envelope-seal {
+    opacity: 0;
 }
 
 .click-text {
@@ -441,7 +449,7 @@ h2 {
     .envelope {
         transform: scale(0.85);
         transform-origin: center;
-        margin: 20px auto;
+        margin: 130px auto 20px; /* xat tepaga chiqishi uchun joy */
     }
 
     .click-text {
@@ -515,7 +523,7 @@ h2 {
 
     .envelope {
         transform: scale(0.75);
-        margin: 5px auto;
+        margin: 120px auto 5px;
     }
 
     .message-card {
